@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./partials/header'); %>
+    <ul>
+        <% for(let i = 0; i < category_list.length; i++ ) { %>
+          <li>
+            <a href="<%=category_list[i].url %>" ><%= category_list[i].name %></a>
+          </li>
+        <% } %>
+      </ul>
+      <%- include('./partials/bootstrap'); %>
+  </body>
+</html>

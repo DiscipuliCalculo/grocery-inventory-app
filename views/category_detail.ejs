@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./partials/header'); %>
+    <h1>Category: <%= category.name %></h1>
+
+    <h3> Products </h3>
+    <% for(let i = 0; i < category_products.length; i++ ) { %>
+      <li>
+        <a href="<%=category_products[i].url %>" ><%= category_products[i].name %></a>
+      </li>
+    <% } %>
+
+    
+    <%- include('./partials/bootstrap'); %>
+  </body>
+</html>

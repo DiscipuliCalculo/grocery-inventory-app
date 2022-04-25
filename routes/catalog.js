@@ -17,7 +17,7 @@ router.get('/', product_controller.index);
 router.get('/product/create', product_controller.product_create_get);
 
 // POST request for creating Product.
-router.post('/product/create', product_controller.product_create_post);
+// router.post('/product/create', product_controller.product_create_post);
 
 // GET request to delete Product.
 router.get('/product/:id/delete', product_controller.product_delete_get);
@@ -44,7 +44,7 @@ router.get('/products', product_controller.product_list);
 router.get('/category/create', category_controller.category_create_get);
 
 // POST request for creating Category.
-router.post('/category/create', category_controller.category_create_post);
+// router.post('/category/create', category_controller.category_create_post);
 
 // GET request to delete Category.
 router.get('/category/:id/delete', category_controller.category_delete_get);
@@ -62,6 +62,6 @@ router.post('/category/:id/update', category_controller.category_update_post);
 router.get('/category/:id', category_controller.category_detail);
 
 // GET request for list of all Category.
-router.get('/categorys', category_controller.category_list);
+router.get('/categories', category_controller.category_list);
 
 module.exports = router;

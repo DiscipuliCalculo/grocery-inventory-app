@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./partials/header'); %>
+    <h1>New Category</h1>
+    <form>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" name="name">
+        <label for="description">Description:</label>
+        <input type="text" name="description">
+        <input type="submit">
+      </div>
+    </form>
+    
+    <%- include('./partials/bootstrap'); %>
+  </body>
+</html>
