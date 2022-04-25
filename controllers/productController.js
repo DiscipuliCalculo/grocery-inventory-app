@@ -16,11 +16,32 @@ exports.index = function (req, res) {
 };
 
 exports.product_list = function (req, res) {
-  res.send('NOT IMPLEMENTED: Product list');
+  Product.find({}, 'name')
+    .sort({ name: 1 })
+    .exec((err, list_products) => {
+      if (err) { return next(err); }
+      // Successful, so render
+      res.render('product_list', { title: 'Product List', product_list: list_products });
+    });
 };
 
 exports.product_detail = function (req, res) {
-  res.send('NOT IMPLEMENTED: Product details');
+  async.parallel({
+    product(callback) {
+      Product.findById(req.params.id)
+        .populate('category')
+        .exec(callback);
+    },
+  }, (err, results) => {
+    if (err) { return next(err); }
+    if (results.product == null) { // No results.
+      var err = new Error('Product not found');
+      err.status = 404;
+      return next(err);
+    }
+    // Successful, so render.
+    res.render('product_detail', { title: 'Product Details', product: results.product });
+  });
 };
 
 exports.product_create_get = function (req, res) {
