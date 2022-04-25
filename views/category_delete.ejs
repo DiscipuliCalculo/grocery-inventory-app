@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+        <% if (category_products.length) { %>
+            <p>Delete or products or remove category association</p>
+            <ul>
+                <% for(let i = 0; i < category_products.length; i++ ) { %>
+                  <li>
+                    <a href="<%=category_products[i].url %>" ><%= category_products[i].name %></a>
+                  </li>
+                <% } %>
+              </ul>
+        <% } else {%>
+            <p>Delete Category?</p>
+            <form method="POST" action=""> 
+                <input type="hidden", name="categoryid", required="true" value="<%=category._id%>" >
+                <input type="submit">   
+            </form>
+        <% } %>
+  </body>
+</html>

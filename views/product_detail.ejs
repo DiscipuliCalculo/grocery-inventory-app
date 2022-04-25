@@ -13,6 +13,12 @@
         <p><%=product.description%></p>
         <p><%=product.price%></p>
         <p><%=product.number_in_stock%></p>
+        <p></p>
+        <% for(let i = 0; i < product.category.length; i++ ) { %>
+          <li>
+            <a href="<%=product.category[i].url %>" ><%= product.category[i].name %></a>
+          </li>
+        <% } %>
 
     
     <%- include('./partials/bootstrap'); %>

@@ -44,7 +44,7 @@ router.get('/products', product_controller.product_list);
 router.get('/category/create', category_controller.category_create_get);
 
 // POST request for creating Category.
-// router.post('/category/create', category_controller.category_create_post);
+router.post('/category/create', category_controller.category_create_post);
 
 // GET request to delete Category.
 router.get('/category/:id/delete', category_controller.category_delete_get);

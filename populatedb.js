@@ -1,6 +1,6 @@
 #! /usr/bin/env node
 
-console.log('This script populates some test products, and categorys to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true');
+console.log('This script populates some test products, and categories to your database. Specified database as argument - e.g.: populatedb mongodb+srv://cooluser:coolpassword@cluster0.a9azn.mongodb.net/local_library?retryWrites=true');
 
 // Get arguments passed on command line
 const userArgs = process.argv.slice(2);
@@ -21,7 +21,7 @@ mongoose.Promise = global.Promise;
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-const categorys = [];
+const categories = [];
 const products = [];
 
 function categoryCreate(name, description, cb) {
@@ -33,7 +33,7 @@ function categoryCreate(name, description, cb) {
       return;
     }
     console.log(`New Category: ${category}`);
-    categorys.push(category);
+    categories.push(category);
     cb(null, category);
   });
 }
@@ -81,25 +81,25 @@ function createProducts(cb) {
   async.parallel(
     [
       function (callback) {
-        productCreate('Bread', 'Freshly baked bread', 1.50, 40, [categorys[2]], callback);
+        productCreate('Bread', 'Freshly baked bread', 1.50, 40, [categories[2]], callback);
       },
       function (callback) {
-        productCreate('Empanada', 'Empanadas made fresh by Abuella', 3.00, 12, [categorys[1], categorys[2]], callback);
+        productCreate('Empanada', 'Empanadas made fresh by Abuella', 3.00, 12, [categories[1], categories[2]], callback);
       },
       function (callback) {
-        productCreate('Apple Pie', 'Pie made with tart apples and the sweetest sugar', 5, 15, [categorys[0], categorys[2]], callback);
+        productCreate('Apple Pie', 'Pie made with tart apples and the sweetest sugar', 5, 15, [categories[0], categories[2]], callback);
       },
       function (callback) {
-        productCreate('A5 Wagyu', 'The best steak from Japan', 135, 0, [categorys[1]], callback);
+        productCreate('A5 Wagyu', 'The best steak from Japan', 135, 0, [categories[1]], callback);
       },
       function (callback) {
-        productCreate('Romaine', 'This stuff always has some CDC warning', 2.99, 12, [categorys[0]], callback);
+        productCreate('Romaine', 'This stuff always has some CDC warning', 2.99, 12, [categories[0]], callback);
       },
       function (callback) {
-        productCreate('Test Product 1', 'Generic Text', 1, 100, [categorys[2]], callback);
+        productCreate('Test Product 1', 'Generic Text', 1, 100, [categories[2]], callback);
       },
       function (callback) {
-        productCreate('Test Product 2', 'Generic Text', 4, 0, [categorys[1]], callback);
+        productCreate('Test Product 2', 'Generic Text', 4, 0, [categories[1]], callback);
       },
     ],
     // optional callback
