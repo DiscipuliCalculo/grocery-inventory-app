@@ -10,8 +10,8 @@
     <form method="post" action="">
       <div>
         <label for="name">Name:</label>
-        <% if (category === undefined) { %>
-          <input type="text" name="name">
+        <% if (typeof category == 'undefined') { %>
+          <input type="text" name="name" value="">
           <label for="description">Description:</label>
           <input type="text" name="description">
           <input type="submit">

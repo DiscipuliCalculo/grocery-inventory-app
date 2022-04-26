@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+        <p>Delete Product?</p>
+        <form method="POST" action=""> 
+            <input type="hidden", name="productid", required="true" value="<%=product._id%>" >
+            <input type="submit">   
+        </form>
+  </body>
+</html>

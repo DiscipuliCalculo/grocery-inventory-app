@@ -6,19 +6,22 @@
   </head>
   <body>
     <%- include('./partials/header'); %>
-        <h1>Product: <%= product.name %></h1>
+        <h3>Product: <%= product.name %></h3>
 
-        <h3> Info </h3>
+        <h4> Info </h4>
     
         <p><%=product.description%></p>
-        <p><%=product.price%></p>
-        <p><%=product.number_in_stock%></p>
+        <p>Price: $<%=product.price%></p>
+        <p>Stock: <%=product.number_in_stock%></p>
         <p></p>
         <% for(let i = 0; i < product.category.length; i++ ) { %>
           <li>
             <a href="<%=product.category[i].url %>" ><%= product.category[i].name %></a>
           </li>
         <% } %>
+
+        <p><a href="<%=product.url%>/delete">Delete Product</a></p>
+        <p><a href="<%=product.url%>/update">Update Product</a></p>
 
     
     <%- include('./partials/bootstrap'); %>

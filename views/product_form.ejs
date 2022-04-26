@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('./partials/head'); %>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <%- include('./partials/header'); %>
+    <h1>New Product</h1>
+    <form method="post" action="">
+      <div>
+        <% if (typeof product == 'undefined') { %>
+          <label for="name">Name:</label>
+          <input type="text" name="name">
+          <label for="description">Description:</label>
+          <input type="text" name="description">
+          <label for="price">Price:</label>
+          <input type="number" name="price">
+          <label for="number_in_stock">Stock:</label>
+          <input type="number" name="number_in_stock">
+          <label for="category">Categories:</label>
+          <ul>
+            <% for(let i = 0; i < categories.length; i++ ) { %>
+              <li>
+                  <label for="<%=categories[i]._id%>"><%=categories[i].name%></label>
+                  <input type="checkbox" name="category" id="<%=categories[i]._id%>" value="<%=categories[i]._id%>">
+              </li>
+            <% } %>
+          </ul>
+          <input type="submit">
+        <% } else { %> 
+          <label for="name">Name:</label>
+          <input type="text" name="name" value="<%=product.name%>">
+          <label for="description">Description:</label>
+          <input type="text" name="description" value="<%=product.description%>">
+          <label for="price">Price:</label>
+          <input type="number" name="price" value="<%=product.price%>">
+          <label for="number_in_stock">Stock:</label>
+          <input type="number" name="number_in_stock" value="<%=product.number_in_stock%>">
+          <label for="category">Categories:</label>
+          <ul>
+            <% for(let i = 0; i < categories.length; i++ ) { %>
+              <li>
+                  <label for="<%=categories[i]._id%>"><%=categories[i].name%></label>
+                  <input type="checkbox" name="category" id="<%=categories[i]._id%>" value="<%=categories[i]._id%>" checked="<%=categories[i].checked%>">
+              </li>
+            <% } %>
+          </ul>
+          <input type="submit">
+        <% } %>
+      </div>
+    </form>
+    
+    <%- include('./partials/bootstrap'); %>
+  </body>
+</html>

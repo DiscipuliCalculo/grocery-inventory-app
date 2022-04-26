@@ -17,7 +17,7 @@ router.get('/', product_controller.index);
 router.get('/product/create', product_controller.product_create_get);
 
 // POST request for creating Product.
-// router.post('/product/create', product_controller.product_create_post);
+router.post('/product/create', product_controller.product_create_post);
 
 // GET request to delete Product.
 router.get('/product/:id/delete', product_controller.product_delete_get);
